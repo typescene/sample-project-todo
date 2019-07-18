@@ -2,15 +2,18 @@
     "name": "first-project",
     "private": true,
     "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "dev": "webpack-dev-server --hot --config src/webpack.config.js",
-        "build": "webpack -p --config src/webpack.config.js"
-    },
-    "keywords": ["Typescene", "example"],
+    "description": "First example project for Typescene",
     "author": "Jelmer Cormont",
     "license": "MIT",
+    "main": "index.js",
+    "scripts": {
+        "start": "webpack-dev-server --hot --config src/webpack.config.js --no-info --open",
+        "build": "webpack -p --config src/webpack.config.js"
+    },
+    "keywords": [
+        "Typescene",
+        "example"
+    ],
     "dependencies": {
         "@typescene/webapp": "^2.0.0"
     },

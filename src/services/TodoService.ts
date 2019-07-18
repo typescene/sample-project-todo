@@ -8,7 +8,7 @@ export class TodoItem extends ManagedRecord {
   complete?: boolean;
 }
 
-export class TodoService extends ManagedService {
+export default class TodoService extends ManagedService {
   name = "App.Todo";
 
   /** Current list of todo items */

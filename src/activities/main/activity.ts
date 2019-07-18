@@ -1,8 +1,8 @@
 import { CHANGE, managedChild, ManagedRecord, PageViewActivity, service, UIListCellAdapterEvent } from "typescene";
-import { TodoItem, TodoService } from "../../services/TodoService";
+import TodoService, { TodoItem } from "../../services/TodoService";
 import view from "./view";
 
-export class MainActivity extends PageViewActivity.with(view) {
+export default class MainActivity extends PageViewActivity.with(view) {
   path = "/";
 
   @service("App.Todo")
