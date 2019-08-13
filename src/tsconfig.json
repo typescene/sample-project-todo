@@ -4,6 +4,8 @@
         "module": "es2015",
         "moduleResolution": "node",
         "target": "es5",
+        "jsx": "react",
+        "jsxFactory": "JSX",
         "lib": ["es2015", "dom"],
         "experimentalDecorators": true,
         "downlevelIteration": true,
