@@ -9,7 +9,7 @@ export default HMR.enableViewReload(
       position={{ gravity: "center" }}
       padding={{ top: 32, x: 16 }}
       revealTransition="fade"
-      >
+    >
       {/* --- page heading: */}
       <row>
         <label icon="check" iconSize={40} iconColor="@green" />
@@ -23,18 +23,18 @@ export default HMR.enableViewReload(
         borderColor="@separator"
         borderThickness={1}
         formContext={bind("formInput")}
-        >
+      >
         <row>
           <borderlesstextfield
             name="newTask"
             placeholder="Enter a task..."
             onEnterKeyPress="addTask()"
             requestFocus
-            />
+          />
           <borderlessbutton
             label="Add"
             onClick="addTask()"
-            />
+          />
         </row>
       </form>
       <spacer dimensions={{ height: 16 }} />
@@ -44,12 +44,12 @@ export default HMR.enableViewReload(
         {/* --- List item template: */}
         <listcell padding={{ x: 16, y: 8 }}
           onToggleTask="toggleTask()"
-          >
+        >
           <row revealTransition="down-fast">
             <toggle
               state={bind("object.complete")}
               onChange="+ToggleTask"
-              />
+            />
             <style
               state={bind("object.complete")}
               styles={{
@@ -57,9 +57,9 @@ export default HMR.enableViewReload(
                   textStyle: { strikeThrough: true }
                 })
               }}
-              >
+            >
               <expandedlabel onClick="+ToggleTask">
-                { bind("object.text") }
+                {bind("object.text")}
               </expandedlabel>
             </style>
           </row>
@@ -69,7 +69,7 @@ export default HMR.enableViewReload(
         <flowcell
           separator={{ type: "line" }}
           animatedContentRenderingDuration={200}
-          />
+        />
       </list>
 
       {/* --- Footer, if non-empty: */}
@@ -78,12 +78,12 @@ export default HMR.enableViewReload(
         <spacer />
         <centerrow>
           <label textStyle={{ color: "@text/50%" }}>
-            { bindf("${todoService.nRemaining} task#{/s} remaining") }
+            {bindf("${todoService.nRemaining} task#{/s} remaining")}
           </label>
           <linkbutton
             hidden={bind("!todoService.nCompleted")}
             onClick="removeCompleted()"
-            >
+          >
             Remove completed
           </linkbutton>
         </centerrow>
