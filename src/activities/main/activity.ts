@@ -6,7 +6,7 @@ export default class MainActivity extends PageViewActivity.with(view) {
   path = "/";
 
   @service("App.Todo")
-  todo?: TodoService;
+  todoService!: TodoService;
 
   /** Form context for the 'add a task' text field */
   @managedChild
@@ -17,7 +17,7 @@ export default class MainActivity extends PageViewActivity.with(view) {
   // event handlers:
 
   addTask() {
-    this.todo!.addItem(this.formInput.newTask);
+    this.todoService.addItem(this.formInput.newTask);
     this.formInput.newTask = "";
     this.formInput.emit(CHANGE);
   }
@@ -30,6 +30,6 @@ export default class MainActivity extends PageViewActivity.with(view) {
   }
 
   removeCompleted() {
-    this.todo!.removeCompleted();
+    this.todoService.removeCompleted();
   }
 }
