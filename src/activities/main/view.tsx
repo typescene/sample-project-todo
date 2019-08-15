@@ -40,12 +40,11 @@ export default HMR.enableViewReload(
       <spacer dimensions={{ height: 16 }} />
 
       {/* --- Items list: */}
-      <list
-        items={bind("todo.items")}
-        onToggleTask="toggleTask()"
-        >
+      <list items={bind("todoService.items")}>
         {/* --- List item template: */}
-        <listcell padding={{ x: 16, y: 8 }}>
+        <listcell padding={{ x: 16, y: 8 }}
+          onToggleTask="toggleTask()"
+          >
           <row revealTransition="down-fast">
             <toggle
               state={bind("object.complete")}
@@ -74,15 +73,15 @@ export default HMR.enableViewReload(
       </list>
 
       {/* --- Footer, if non-empty: */}
-      <flowcell hidden={bind("!todo.items.count")}>
+      <flowcell hidden={bind("!todoService.items.count")}>
         <separator />
         <spacer />
         <centerrow>
           <label textStyle={{ color: "@text/50%" }}>
-            { bindf("${todo.nRemaining} task#{/s} remaining") }
+            { bindf("${todoService.nRemaining} task#{/s} remaining") }
           </label>
           <linkbutton
-            hidden={bind("!todo.nCompleted")}
+            hidden={bind("!todoService.nCompleted")}
             onClick="removeCompleted()"
             >
             Remove completed
