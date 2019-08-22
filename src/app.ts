@@ -5,6 +5,6 @@ import TodoService from "./services/TodoService";
 new TodoService().register();
 
 const app = BrowserApplication.run(
-  MainActivity,
+  MainActivity
   // ... add activities here
 );

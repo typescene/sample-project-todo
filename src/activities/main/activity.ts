@@ -1,4 +1,11 @@
-import { CHANGE, managedChild, ManagedRecord, PageViewActivity, service, UIListCellAdapterEvent } from "typescene";
+import {
+  CHANGE,
+  managedChild,
+  ManagedRecord,
+  PageViewActivity,
+  service,
+  UIListCellAdapterEvent,
+} from "typescene";
 import TodoService, { TodoItem } from "../../services/TodoService";
 import view from "./view";
 
@@ -11,7 +18,7 @@ export default class MainActivity extends PageViewActivity.with(view) {
   /** Form context for the 'add a task' text field */
   @managedChild
   formInput = ManagedRecord.create({
-    newTask: ""
+    newTask: "",
   });
 
   // event handlers:

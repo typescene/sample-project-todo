@@ -31,10 +31,7 @@ export default HMR.enableViewReload(
             onEnterKeyPress="addTask()"
             requestFocus
           />
-          <borderlessbutton
-            label="Add"
-            onClick="addTask()"
-          />
+          <borderlessbutton label="Add" onClick="addTask()" />
         </row>
       </form>
       <spacer dimensions={{ height: 16 }} />
@@ -42,34 +39,24 @@ export default HMR.enableViewReload(
       {/* --- Items list: */}
       <list items={bind("todoService.items")}>
         {/* --- List item template: */}
-        <listcell padding={{ x: 16, y: 8 }}
-          onToggleTask="toggleTask()"
-        >
+        <listcell padding={{ x: 16, y: 8 }} onToggleTask="toggleTask()">
           <row revealTransition="down-fast">
-            <toggle
-              state={bind("object.complete")}
-              onChange="+ToggleTask"
-            />
+            <toggle state={bind("object.complete")} onChange="+ToggleTask" />
             <style
               state={bind("object.complete")}
               styles={{
                 true: UIStyle.create({
-                  textStyle: { strikeThrough: true }
-                })
+                  textStyle: { strikeThrough: true },
+                }),
               }}
             >
-              <expandedlabel onClick="+ToggleTask">
-                {bind("object.text")}
-              </expandedlabel>
+              <expandedlabel onClick="+ToggleTask">{bind("object.text")}</expandedlabel>
             </style>
           </row>
         </listcell>
 
         {/* --- List container: */}
-        <flowcell
-          separator={{ type: "line" }}
-          animatedContentRenderingDuration={200}
-        />
+        <flowcell separator={{ type: "line" }} animatedContentRenderingDuration={200} />
       </list>
 
       {/* --- Footer, if non-empty: */}
@@ -80,14 +67,11 @@ export default HMR.enableViewReload(
           <label textStyle={{ color: "@text/50%" }}>
             {bindf("${todoService.nRemaining} task#{/s} remaining")}
           </label>
-          <linkbutton
-            hidden={bind("!todoService.nCompleted")}
-            onClick="removeCompleted()"
-          >
+          <linkbutton hidden={bind("!todoService.nCompleted")} onClick="removeCompleted()">
             Remove completed
           </linkbutton>
         </centerrow>
       </flowcell>
     </flowcell>
   </scrollcontainer>
-)
+);
