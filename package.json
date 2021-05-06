@@ -1,28 +1,30 @@
 {
-  "name": "first-project",
-  "private": true,
+  "name": "sample-project-todo",
   "version": "1.0.0",
-  "description": "First example project for Typescene",
+  "private": true,
+  "description": "Typescene example application: Todo",
   "author": "Jelmer Cormont",
   "license": "MIT",
-  "main": "index.js",
-  "scripts": {
-    "start": "webpack-dev-server --hot --config src/webpack.config.js --no-info --open",
-    "build": "webpack -p --config src/webpack.config.js"
-  },
   "keywords": [
-    "Typescene",
+    "typescene",
     "example"
   ],
+  "prettier": {},
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack --config src/webpack.config.dev.js",
+    "build": "webpack --config src/webpack.config.js"
+  },
   "dependencies": {
-    "@typescene/webapp": "^2.0.0"
+    "typescene": "3",
+    "@typescene/webapp": "^3.1.0"
   },
   "devDependencies": {
-    "typescript": "^3.4.5",
-    "webpack": "^4.31.0",
-    "webpack-cli": "^3.3.2",
-    "webpack-dev-server": "^3.3.1",
-    "copy-webpack-plugin": "^5.0.3",
-    "ts-loader": "^6.0.0"
+    "typescript": "*",
+    "webpack": "^5.36.2",
+    "webpack-cli": "^4.6.0",
+    "webpack-plugin-serve": "^1.4.1",
+    "copy-webpack-plugin": "^8.1.1",
+    "ts-loader": "^9.1.1"
   }
 }

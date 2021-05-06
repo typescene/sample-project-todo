@@ -1,10 +1,30 @@
-# Typescene Example
+# Typescene sample application: Todo
 
-This code is explained in "Your first project", a guide on the Typescene website: [https://typescene.dev](https://typescene.dev).
+This repository contains an example application for the Typescene framework. It contains the following components:
 
-### Issues
+- Application instance (using `@typescene/webapp`)
+- `TodoService` -- Service that provides an API for creating and managing `TodoItem` objects
+- `MainActivity` -- Single activity for the application
+- Main view (using JSX)
+- `TodoStatusLine` -- Example of a simple view component
 
-Please report issues here or in the repository for the Typescene website.
+This application uses Webpack for bundling, and for running a development server.
+
+<p align="center"><img width="360" src="screenshot.png"></p>
+
+### Build & Run
+
+To build this project (all output files will be stored in a `dist` folder), run the following command:
+
+```bash
+npm run build
+```
+
+To run this project in development mode (using Webpack HMR, i.e. Hot Module Replacement), run the following command:
+
+```bash
+npm run start
+```
 
 ### License
 

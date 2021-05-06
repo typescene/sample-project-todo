@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
     "strict": true,
-    "module": "es2015",
+    "module": "es2020",
     "moduleResolution": "node",
-    "target": "es5",
+    "target": "es2017",
+    "lib": ["es2015", "dom"],
     "jsx": "react",
     "jsxFactory": "JSX",
-    "lib": ["es2015", "dom"],
     "experimentalDecorators": true,
     "downlevelIteration": true,
     "sourceMap": true

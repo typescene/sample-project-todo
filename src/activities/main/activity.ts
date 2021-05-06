@@ -1,42 +1,41 @@
 import {
-  CHANGE,
+  ActionEvent,
   managedChild,
-  ManagedRecord,
   PageViewActivity,
   service,
-  UIListCellAdapterEvent,
+  UIFormContext,
 } from "typescene";
 import TodoService, { TodoItem } from "../../services/TodoService";
 import view from "./view";
 
 export default class MainActivity extends PageViewActivity.with(view) {
-  path = "/";
-
   @service("App.Todo")
   todoService!: TodoService;
 
   /** Form context for the 'add a task' text field */
   @managedChild
-  formInput = ManagedRecord.create({
+  formInput = UIFormContext.create({
     newTask: "",
   });
 
-  // event handlers:
-
-  addTask() {
-    this.todoService.addItem(this.formInput.newTask);
-    this.formInput.newTask = "";
-    this.formInput.emit(CHANGE);
-  }
-
-  toggleTask(e: UIListCellAdapterEvent<TodoItem>) {
-    if (e.object instanceof TodoItem) {
-      e.object.complete = !e.object.complete;
-      e.object.emit(CHANGE);
+  /** Event handler: add a task using the current form input */
+  onAddTask() {
+    let text = this.formInput.get("newTask");
+    if (text) {
+      this.todoService.addItem(text);
+      this.formInput.set("newTask", "");
     }
   }
 
-  removeCompleted() {
-    this.todoService.removeCompleted();
+  /** Event handler: toggle a task */
+  onToggleTask(e: ActionEvent<any, TodoItem>) {
+    if (e.context instanceof TodoItem) {
+      // Note: we update the item object directly here, although of course
+      // we could have added a method to the service as well:
+      e.context.complete = !e.context.complete;
+      e.context.emitChange();
+    }
   }
 }
+
+MainActivity.autoUpdate(module);
